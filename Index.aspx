@@ -26,7 +26,7 @@
 			<!--顶部导航条 -->
 			<div class="am-container header">
 				<ul class="message-l">
-					<div class="topMessage">
+					<div class="topMessage" id="login">
 						<div class="menu-hd">
 							<a href="Login.aspx" target="_top" class="h">亲，请登录!&nbsp;</a>
 							<a href="Register.aspx" target="_top">免费注册</a>
@@ -35,15 +35,23 @@
 				</ul>
 				<ul class="message-r">
 					<div class="topMessage home">
-						<div class="menu-hd">你好！
-                        <a href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
+						<div class="menu-hd">
+                        <a id="userlogin" href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
 					</div>
                     <div class="topMessage home">
-						<div class="menu-hd">
-                        <a href="Login.aspx" target="_top" id="exitLogin" class="h" runat="server" >注销登录</a>
-          
+                        <form runat="server">
+						<div class="menu-hd" id="userlogout">
+                            <a  runat="server"  class="h" onserverclick="logout">注销登录</a>
                         </div>
+                        </form>
 					</div>
+				    <div class="topMessage my-shangcheng">
+				        <div class="menu-hd MyShangcheng"><a href="Index.aspx" target="_top">云购首页</a></div>
+				    </div>
+				    <div class="topMessage my-shangcheng">
+				        <div class="menu-hd MyShangcheng"><a href="PersonalShopCar.aspx" target="_top">购物车</a></div>
+				    </div>
+
 					<div class="topMessage my-shangcheng">
 						<div class="menu-hd MyShangcheng"><a href="Person_index.aspx" target="_top">我的二手云购</a></div>
 					</div>
@@ -164,13 +172,15 @@
 				                <br/>
 				                <div class="s-price">
 				                    <a class="s-buy" href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
-				                    <a class="s-buy" href="#" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+				                    <a name="goodid"  class="s-buy" href="Jump.aspx?id=<%=good.Id%>" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+
 				                </div>                           	  
 				            </div>								
 				        </div>
 				        <%
                            }
-				        %>			
+				        %>	
+				   
 				    </div>
 				    <div class="clear "></div>                 
 				</div>      
@@ -205,7 +215,7 @@
                                 <br/>
                                 <div class="s-price">
                                     <a class="s-buy" href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
-                                    <a class="s-buy" href="#" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+                                    <a class="s-buy" href="ShopCar.aspx" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
                                 </div>                           	  
                             </div>								
                         </div>
@@ -237,137 +247,7 @@
 					</div>
 				</div>
 			</div>
-	
-	
-		<!--菜单 -->
-		<div class=tip>
-			<div id="sidebar">
-				<div id="wrap">
-					<div id="prof" class="item ">
-						<a href="# ">
-							<span class="setting "></span>
-						</a>
-						<div class="ibar_login_box status_login ">
-							<div class="avatar_box ">
-								<p class="avatar_imgbox "><img src="home/images/no-img_mid_.jpg " /></p>
-								<ul class="user_info ">
-									<li>用户名：sl1903</li>
-									<li>级&nbsp;别：普通会员</li>
-								</ul>
-							</div>
-							<div class="login_btnbox ">
-								<a href="# " class="login_order ">我的订单</a>
-								<a href="# " class="login_favorite ">我的收藏</a>
-							</div>
-							<i class="icon_arrow_white "></i>
-						</div>
 
-					</div>
-					<div id="shopCart " class="item ">
-						<a href="# ">
-							<span class="message "></span>
-						</a>
-						<p>
-							购物车
-						</p>
-						<p class="cart_num ">0</p>
-					</div>
-					<div id="brand " class="item ">
-						<a href="#">
-							<span class="wdsc "><img src="home/images/wdsc.png " /></span>
-						</a>
-						<div class="mp_tooltip ">
-							我的收藏
-							<i class="icon_arrow_right_black "></i>
-						</div>
-					</div>
-
-					<div class="quick_toggle ">
-						<li class="qtitem ">
-							<a href="# "><span class="kfzx "></span></a>
-							<div class="mp_tooltip ">客服中心<i class="icon_arrow_right_black "></i></div>
-						</li>
-						<!--二维码 -->
-						<li class="qtitem ">
-							<a href="#none "><span class="mpbtn_qrcode "></span></a>
-							<div class="mp_qrcode " style="display:none; "><img src="home/images/weixin_code_145.png " /><i class="icon_arrow_white "></i></div>
-						</li>
-						<li class="qtitem ">
-							<a href="#top " class="return_top "><span class="top "></span></a>
-						</li>
-					</div>
-
-					<!--回到顶部 -->
-					<div id="quick_links_pop " class="quick_links_pop hide "></div>
-
-				</div>
-
-			</div>
-			<div id="prof-content " class="nav-content ">
-				<div class="nav-con-close ">
-					<i class="am-icon-angle-right am-icon-fw "></i>
-				</div>
-				<div>
-					我
-				</div>
-			</div>
-			<div id="shopCart-content " class="nav-content ">
-				<div class="nav-con-close ">
-					<i class="am-icon-angle-right am-icon-fw "></i>
-				</div>
-				<div>
-					购物车
-				</div>
-			</div>
-			<div id="asset-content " class="nav-content ">
-				<div class="nav-con-close ">
-					<i class="am-icon-angle-right am-icon-fw "></i>
-				</div>
-				<div>
-					资产
-				</div>
-
-				<div class="ia-head-list ">
-					<a href="# " target="_blank " class="pl ">
-						<div class="num ">0</div>
-						<div class="text ">优惠券</div>
-					</a>
-					<a href="# " target="_blank " class="pl ">
-						<div class="num ">0</div>
-						<div class="text ">红包</div>
-					</a>
-					<a href="# " target="_blank " class="pl money ">
-						<div class="num ">￥0</div>
-						<div class="text ">余额</div>
-					</a>
-				</div>
-
-			</div>
-			<div id="foot-content " class="nav-content ">
-				<div class="nav-con-close ">
-					<i class="am-icon-angle-right am-icon-fw "></i>
-				</div>
-				<div>
-					足迹
-				</div>
-			</div>
-			<div id="brand-content " class="nav-content ">
-				<div class="nav-con-close ">
-					<i class="am-icon-angle-right am-icon-fw "></i>
-				</div>
-				<div>
-					收藏
-				</div>
-			</div>
-			<div id="broadcast-content " class="nav-content ">
-				<div class="nav-con-close ">
-					<i class="am-icon-angle-right am-icon-fw "></i>
-				</div>
-				<div>
-					充值
-				</div>
-			</div>
-		</div>
 	    <link href="css/sweetalert.css" rel="stylesheet" type="text/css" />
         <script src="js/sweetalert.min.js" ></script>
 	    <script src="js/sweetalert-dev.js"></script>
@@ -377,6 +257,18 @@
 		    window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
 		</script>
 		<script type="text/javascript " src="basic/js/quick_links.js "></script>
+        <script type="text/javascript">
+            var userlogin = document.getElementById('userlogin').innerText;
+            if (userlogin == "") {
+                $("#login").show();
+                $("#userlogout").hide();
+            } else {
 
+                $("#login").hide();
+                $("#userlogout").show();
+            }
+
+
+        </script>
 	</body>
 </html>

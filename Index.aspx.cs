@@ -22,5 +22,25 @@ public partial class Index : System.Web.UI.Page
         return username;
 
     }
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+    }
+
+
+    protected void addshopcar(object sender, EventArgs e)
+    {
+
+
+        Response.Write("<script>alert('添加购物车成功！');</script>");
+        //Good good = new Good();
+        //string goodId = (((LinkButton)sender).CommandArgument.ToString());
+
+
+
+
+    }
+
 
 }

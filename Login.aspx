@@ -65,8 +65,6 @@
                     </form>
                 </div>
                 <div class="login-links">
-                    <label for="remember-me">
-                        <input id="remember-me" type="checkbox">记住密码</label>
                     <a href="#" class="am-fr">忘记密码?</a> <a href="Register.aspx" class="zcnext am-fr am-btn-default">
                         注册</a>
                     <br />
@@ -81,7 +79,7 @@
     <div class="footer ">
         <div class="footer-bd ">
             <p>
-                <a href="# ">关于云购</a> <a href="# ">联系我们</a> <em>© 2017-2018 CloudMarket.com 版权所有
+                <a href="#">关于云购</a> <a href="#">联系我们</a> <em>© 2017-2018 CloudMarket.com 版权所有
                 </em>
             </p>
         </div>

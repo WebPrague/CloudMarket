@@ -24,12 +24,12 @@ public partial class Login : System.Web.UI.Page
         MySqlConnection con = new MySqlConnection(str);
         con.Open(); //进行数据库连接
 
-        string sql_email = "select * from user where email=@email and password=@password";
-        string sql_phone = "select * from user where phonenumber=@phonenumber and password=@password";
+        string sql_email = "select * from user where email=@email and email_password=@email_password";
+        string sql_phone = "select * from user where phonenumber=@phonenumber and phone_password=@phone_password";
 
         MySqlCommand comm_email = new MySqlCommand(sql_email, con);
-        comm_email.Parameters.Add("email", Request.Form["username"]);
-        comm_email.Parameters.Add("password", Request.Form["password"]);
+        comm_email.Parameters.Add("@email", Request.Form["username"]);
+        comm_email.Parameters.Add("@email_password", Request.Form["password"]);
 
         Boolean tag = true;
         MySqlDataReader sdr_email = comm_email.ExecuteReader();
@@ -40,26 +40,39 @@ public partial class Login : System.Web.UI.Page
 
             Response.Write("<script>location.href='Index.aspx';</script>");
             tag = false;
+          
         }
-        sdr_email.Close();
-        if(tag)
-        {
-            MySqlCommand comm_phone = new MySqlCommand(sql_phone, con);
+        else{
+            sdr_email.Close();
+            if (tag)
+                {
+                    MySqlCommand comm_phone = new MySqlCommand(sql_phone, con);
 
-            comm_phone.Parameters.Add("phonenumber", Request.Form["username"]);
-            comm_phone.Parameters.Add("password", Request.Form["password"]);
-            MySqlDataReader sdr_phone = comm_phone.ExecuteReader();
-            Session["username"] = username.Value;
-            Session["password"] = password.Value;
-            Response.Write("<script>location.href='Index.aspx';</script>");
-        }
-        else
-        {
+                    comm_phone.Parameters.Add("@phonenumber", Request.Form["username"]);
+                    comm_phone.Parameters.Add("@phone_password", Request.Form["password"]);
+                    MySqlDataReader sdr_phone = comm_phone.ExecuteReader();
+
+                    if (sdr_phone.Read())
+                    {
+                        Session["username"] = username.Value;
+                        Session["password"] = password.Value;
+                        Response.Write("<script>location.href='Index.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('您输入的用户名或密码有误！');location.href='Login.aspx';</script>");
+                    }
+
+                }
+
             Response.Write("<script>alert('您输入的用户名或密码有误！');location.href='Login.aspx';</script>");
-
         }
+        
         con.Close();
 
        
     }
+
+
+
 }
