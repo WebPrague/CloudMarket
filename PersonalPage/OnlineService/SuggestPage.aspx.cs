@@ -5,37 +5,38 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class PersonalShopCar : System.Web.UI.Page
+public partial class PersonalPage_OnlineService_SuggestPage : System.Web.UI.Page
 {
     public string username;
-    public List<ShopCar> shopcars = null;
-    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["username"] == null)
         {
-            Response.Write("<script>alert('亲爱的，请先登录！');location.href='Login.aspx';</script>");
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='../../Login.aspx';</script>");
         }
-        shopcars = getShopCarList();
-        //updateShopCar();
+
+        if (Request.HttpMethod.Equals("POST"))
+        {
+            addSuggest();
+        }
+
     }
     public string getUserName()
     {
         username = (string)Session["username"];
         return username;
-
     }
     protected void logout(object sender, EventArgs e)
     {
         Session.Abandon();
-        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+        Response.Write("<script>alert('注销登录！');location.href='../../Index.aspx';</script>");
     }
 
-    //返回购物车列表
-
-
-    public List<ShopCar> getShopCarList()
+   public  void addSuggest()
     {
+
+
+        string problem = sayProblem.Value;
 
         int userid;
         userid = UserService.getUserIdByPhone(getUserName());
@@ -44,11 +45,9 @@ public partial class PersonalShopCar : System.Web.UI.Page
             userid = UserService.getUserIdByEmail(getUserName());
         }
 
-        //List<ShopCar> shopcars = new List<ShopCar>();
-
-        shopcars = ShopCarService.getAllShopCarByUserId(userid);
-        return shopcars;
-
+        SuggestService.addSuggest(userid,problem);
+    
+        Response.Write("<script>alert('反馈提交成功！！');location.href='../../Person_index.aspx';</script>");
     }
 
 

@@ -13,6 +13,10 @@ public partial class AddOrder : System.Web.UI.Page
     public Good good = null;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='Login.aspx';</script>");
+        }
         getGoodId();
     }
     public string getUserName()
@@ -115,5 +119,9 @@ public partial class AddOrder : System.Web.UI.Page
             int realCode = code_array[join_index];
             return realCode;
     }
-
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+    }
 }

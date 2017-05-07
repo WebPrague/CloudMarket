@@ -24,32 +24,32 @@
 				<div class="mt-logo">
 					<!--顶部导航条 -->
 					<div class="am-container header">
-						<ul class="message-l">
-							<div class="topMessage">
-								<div class="menu-hd">
-									<a href="Login.aspx" target="_top" class="h">亲，请登录</a>
-									<a href="Register.aspx" target="_top">免费注册</a>
-								</div>
-							</div>
-						</ul>
-				<ul class="message-r">
-					<div class="topMessage home">
-						<div class="menu-hd">你好！
-                        <a href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
-					</div>
-                    <div class="topMessage home">
-						<div class="menu-hd"><a href="Login.aspx" target="_top" class="h">注销登录</a></div>
-					</div>
-					<div class="topMessage my-shangcheng">
-						<div class="menu-hd MyShangcheng"><a href="Person_index.aspx" target="_top">我的二手云购</a></div>
-					</div>
-					<div class="topMessage mini-cart">
-						<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
-					</div>
-                    <div class="topMessage mini-cart">
-						<div class="menu-hd"><a id="A1" href="#" target="_top"><span>在线客服</span><strong id="Strong1" class="h"></strong></a></div>
-					</div>
-				</ul>
+					    <ul class="message-r">
+					        <div class="topMessage home">
+					            <div class="menu-hd">
+					                <a id="userlogin" href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
+					        </div>
+					        <div class="topMessage home">
+					            <form runat="server">
+					                <div class="menu-hd" id="userlogout">
+					                    <a  runat="server"  class="h" onserverclick="logout">注销登录</a>
+					                </div>
+					            </form>
+					        </div>
+					        <div class="topMessage my-shangcheng">
+					            <div class="menu-hd MyShangcheng"><a href="Index.aspx" target="_top">云购首页</a></div>
+					        </div>
+					        <div class="topMessage my-shangcheng">
+					            <div class="menu-hd MyShangcheng"><a href="PersonalShopCar.aspx" target="_top">购物车</a></div>
+					        </div>
+
+					        <div class="topMessage my-shangcheng">
+					            <div class="menu-hd MyShangcheng"><a href="Person_index.aspx" target="_top">我的二手云购</a></div>
+					        </div>
+					        <div class="topMessage mini-cart">
+					            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
+					        </div>
+					    </ul>
 						</div>
 
 						<!--悬浮搜索框-->
@@ -204,12 +204,11 @@
 						<ul>
 							<li><a href="PersonalPage/PurchaseRecord/JinxingPurchase.aspx">进行中</a></li>
 							<li> <a href="PersonalPage/PurchaseRecord/AnnouncedPurchase.aspx">已揭晓</a></li>
-							<li> <a href="PersonalPage/PurchaseRecord/ExitPurchase.aspx">已退购</a></li>
 						</ul>
 					</li>
 
 					<li class="person">
-						<p><i class="am-icon-tags"></i><a href="#">已发布的商品</a></p>
+						<p><i class="am-icon-tags"></i><a href="PublishGood.aspx">已发布的商品</a></p>
 						<ul>
 							<li> <a href="PersonalPage/ReleaseGoods/Addgood.aspx">添加商品</a></li>
 							<li> <a href="PersonalPage/ReleaseGoods/TradeSuccessGoods.aspx">已成功交易的商品</a></li>	
@@ -228,7 +227,7 @@
 					<li class="person">
 						<p><i class="am-icon-qq"></i>在线客服</p>
 						<ul>
-							<li> <a href="PersonalPage/OnlineService/Suggest.aspx">意见反馈</a></li>							
+							<li> <a href="PersonalPage/OnlineService/SuggestPage.aspx">意见反馈</a></li>							
 						</ul>
 					</li>
 				</ul>

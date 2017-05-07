@@ -12,6 +12,10 @@ public partial class UpdateShopCar : System.Web.UI.Page
     public ShopCar shopcar = null;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='Login.aspx';</script>");
+        }
         updateShopCar();
         //buytime1.Value = updateShopCar().BuyTime.ToString();
   
@@ -132,7 +136,11 @@ public partial class UpdateShopCar : System.Web.UI.Page
         return realCode;
     }
 
-
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+    }
 
 
 

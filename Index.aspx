@@ -49,11 +49,11 @@
 				        <div class="menu-hd MyShangcheng"><a href="Index.aspx" target="_top">云购首页</a></div>
 				    </div>
 				    <div class="topMessage my-shangcheng">
-				        <div class="menu-hd MyShangcheng"><a href="PersonalShopCar.aspx" target="_top">购物车</a></div>
+				        <div class="menu-hd MyShangcheng"><a href="PersonalShopCar.aspx"  target="_top">购物车</a></div>
 				    </div>
 
 					<div class="topMessage my-shangcheng">
-						<div class="menu-hd MyShangcheng"><a href="Person_index.aspx" target="_top">我的二手云购</a></div>
+						<div class="menu-hd MyShangcheng"><a href="Person_index.aspx"  target="_top">我的二手云购</a></div>
 					</div>
 					<div class="topMessage mini-cart">
 						<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
@@ -171,8 +171,8 @@
 				                <p>总需人数：<%=good.Joinpeoplenum %></p>
 				                <br/>
 				                <div class="s-price">
-				                    <a class="s-buy" href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
-				                    <a name="goodid"  class="s-buy" href="Jump.aspx?id=<%=good.Id%>" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+				                    <a class="s-buy"  href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
+				                    <a name="goodid"   class="s-buy" href="Jump.aspx?id=<%=good.Id%>" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
 
 				                </div>                           	  
 				            </div>								
@@ -214,8 +214,8 @@
                                 <p>总需人数：<%=good.Joinpeoplenum %></p>
                                 <br/>
                                 <div class="s-price">
-                                    <a class="s-buy" href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
-                                    <a class="s-buy" href="ShopCar.aspx" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+                                    <a class="s-buy"  href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
+                                    <a class="s-buy"  href="ShopCar.aspx" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
                                 </div>                           	  
                             </div>								
                         </div>
@@ -230,7 +230,7 @@
 							<p>
 								<a href="#">二手云购</a>
 								<b>|</b>
-								<a href="#">云购首页</a>
+								<a href="Index.aspx">云购首页</a>
 								<b>|</b>
 								<a href="#">支付宝</a>
 								<b>|</b>
@@ -239,8 +239,8 @@
 						</div>
 						<div class="footer-bd ">
 							<p>
-								<a href="# ">关于二手运购</a>
-								<a href="# ">联系我们</a>
+								<a href="#">关于二手运购</a>
+								<a href="#">联系我们</a>
 								<em>2017-2018 CloudMarket.com 版权所有. </em>
 							</p>
 						</div>

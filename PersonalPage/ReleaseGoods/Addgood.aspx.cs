@@ -14,7 +14,10 @@ public partial class Addgood : System.Web.UI.Page
     private string _directory = @"../File/UploadFile";
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='../../Login.aspx';</script>");
+        }
         imgLoad();
     }
     public string imgLoad()
@@ -100,4 +103,13 @@ public partial class Addgood : System.Web.UI.Page
         //Response.Write("<script>alert('图片上传成功！')</script>");
         Response.Write("<script>alert('商品添加成功！');location.href='ProcessingGoods.aspx';</script>");
     }
+
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='../../Index.aspx';</script>");
+    }
+
+
+
 }

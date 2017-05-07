@@ -13,6 +13,12 @@ public partial class Jump : System.Web.UI.Page
     public string username;
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='Login.aspx';</script>");
+        }
         addShopCar();
     }
 

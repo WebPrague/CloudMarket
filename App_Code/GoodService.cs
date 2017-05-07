@@ -266,5 +266,36 @@ public class GoodService
         return tradeSuccessGoods;
     }
 
+    public static List<Good> GetAllGoodByUserId(int userid)
+    {
+        List<Good> allGoods = new List<Good>();
+        string sql = "select * from good where userid=?userid";
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?userid", userid));
+        MySqlDataReader rdr = comm.ExecuteReader();
+        while (rdr.Read())
+        {
+            Good good = new Good();
+            good.Id = rdr.GetInt32("id");
+            good.Goodname = rdr.GetString("name");
+            good.Goodvalue = rdr.GetString("value");
+            good.Joinpeoplenum = rdr.GetInt32("joinpeoplenum");
+            good.Picurl = rdr.GetString("picurl");
+            good.JoinPeople = rdr.GetInt32("joinpeople");
+            good.RemainPeople = rdr.GetInt32("remainpeople");
+            good.LuckyCode = rdr.GetString("luckycode");
+            good.Status = rdr.GetString("status");
+            allGoods.Add(good);
+        }
+        comm.Clone();
+        con.Close();
+        return allGoods;
+    }
+
+
+
+
 
 }

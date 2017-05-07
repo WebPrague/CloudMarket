@@ -8,13 +8,13 @@ using System.Web;
 /// </summary>
 public class User
 {
-    public int id;
-    public string email;
-    public string password;
-    public string phonenumber;
-    public string username;
+    public int Id { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Phonenumber { get; set; }
+    public string Username { get; set; }
 
-	public User()
+    public User()
 	{
 		//
 		//TODO: 在此处添加构造函数逻辑

@@ -10,7 +10,10 @@ public partial class Person_index : System.Web.UI.Page
     public string username;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='Login.aspx';</script>");
+        }
     }
     public string getUserName()
     {
@@ -21,4 +24,12 @@ public partial class Person_index : System.Web.UI.Page
         //string username_temp = username.ToString();
         return username;
     }
+
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+    }
+
+
 }

@@ -15,6 +15,10 @@ public partial class OrderDetail : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='Login.aspx';</script>");
+        }
         getOrderId();
         orders = OrderService.GetOrdersByOrderId(int.Parse(order.OrderId));
     }
@@ -31,4 +35,11 @@ public partial class OrderDetail : System.Web.UI.Page
         order.OrderSum = ordersum;
         return order;
     }
+
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+    }
+
 }

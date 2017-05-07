@@ -37,7 +37,7 @@
 <!--顶部导航条 -->
 <div class="am-container header">
     <ul class="message-l">
-        <div class="topMessage">
+        <div class="topMessage" id="login">
             <div class="menu-hd">
                 <a href="Login.aspx" target="_top" class="h">亲，请登录</a>
                 <a href="Register.aspx" target="_top">免费注册</a>
@@ -46,15 +46,23 @@
     </ul>
     <ul class="message-r">
         <div class="topMessage home">
-            <div class="menu-hd">你好！
-                <a href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
+            <div class="menu-hd">
+                <a id="userlogin" href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
         </div>
         <div class="topMessage home">
-            <div class="menu-hd">
-                <a href="Login.aspx" target="_top" id="exitLogin" class="h" runat="server" >注销登录</a>
-          
-            </div>
+            <form runat="server">
+                <div class="menu-hd" id="userlogout">
+                    <a  runat="server"  class="h" onserverclick="logout">注销登录</a>
+                </div>
+            </form>
         </div>
+        <div class="topMessage my-shangcheng">
+            <div class="menu-hd MyShangcheng"><a href="Index.aspx" target="_top">云购首页</a></div>
+        </div>
+        <div class="topMessage my-shangcheng">
+            <div class="menu-hd MyShangcheng"><a href="PersonalShopCar.aspx" target="_top">购物车</a></div>
+        </div>
+
         <div class="topMessage my-shangcheng">
             <div class="menu-hd MyShangcheng"><a href="Person_index.aspx" target="_top">我的二手云购</a></div>
         </div>
@@ -161,7 +169,17 @@
 
 
 </div>
+<script type="text/javascript">
+    var userlogin = document.getElementById('userlogin').innerText;
+    if (userlogin == "") {
+        $("#login").show();
+        $("#userlogout").hide();
+    } else {
 
+        $("#login").hide();
+        $("#userlogout").show();
+    }
+</script>
 
 </body>
 

@@ -20,25 +20,25 @@
         <div class="mt-logo">
             <!--顶部导航条 -->
             <div class="am-container header">
-                <ul class="message-l">
-                    <div class="topMessage">
-                        <div class="menu-hd">
-                            <a href="../../Login.aspx" target="_top" class="h">亲，请登录</a>
-                            <a href="../../Register.aspx" target="_top">免费注册</a>
-                        </div>
-                    </div>
-                </ul>
                 <ul class="message-r">
                     <div class="topMessage home">
-                        <div class="menu-hd">你好！
-                            <a href="../../Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
+                        <div class="menu-hd">
+                            <a id="userlogin" href="../../Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
                     </div>
                     <div class="topMessage home">
-                        <div class="menu-hd">
-                            <a href="../../Login.aspx" target="_top" id="exitLogin" class="h" runat="server" >注销登录</a>
-          
-                        </div>
+                        <form runat="server">
+                            <div class="menu-hd" id="userlogout">
+                                <a  runat="server"  class="h" onserverclick="logout">注销登录</a>
+                            </div>
+                        </form>
                     </div>
+                    <div class="topMessage my-shangcheng">
+                        <div class="menu-hd MyShangcheng"><a href="../../Index.aspx" target="_top">云购首页</a></div>
+                    </div>
+                    <div class="topMessage my-shangcheng">
+                        <div class="menu-hd MyShangcheng"><a href="../../PersonalShopCar.aspx" target="_top">购物车</a></div>
+                    </div>
+
                     <div class="topMessage my-shangcheng">
                         <div class="menu-hd MyShangcheng"><a href="../../Person_index.aspx" target="_top">我的二手云购</a></div>
                     </div>
@@ -65,11 +65,10 @@
         <span class="all-goods">全部分类</span></div>
     <div class="nav-cont">
         <ul>
-            <li class="index"><a href="#">首页</a></li>
-            <li class="qc"><a href="#">最新揭晓</a></li>
-            <li class="qc"><a href="#">热门推荐</a></li>
-            <li class="qc"><a href="#">新品上架</a></li>
-            <li class="qc last"><a href="#">大包装</a></li>
+            <li class=""><a href="../../Index.aspx">首页</a></li>
+            <li class="qc"><a href="../../Zuixinjiexiao.aspx">最新揭晓</a></li>
+            <li class="qc"><a href="../../Rementuijian.aspx">热门推荐</a></li>
+            <li class="qc"><a href="../../Xinpinshangjia.aspx">新品上架</a></li>
         </ul>
     </div>
 </div>
@@ -112,11 +111,18 @@
     <div class="order-main">
         <div class="order-list">
             <!--交易成功-->
+            
+            <% foreach (var order in orders)
+
+               {
+
+            %>
+
             <div class="order-status5">
                 <div class="order-title">
                     <div class="dd-num">
-                        订单编号：<a href="javascript:;">1601430</a></div>
-                    <span>成交时间：2015-12-20</span>
+                        订单编号：<a href="javascript:;"><%=order.OrderId%></a></div>
+                    <span>成交时间：<%=order.Addtime %></span>
                 </div>
                 <div class="order-content">
                     <div class="order-left">
@@ -124,377 +130,130 @@
                             <li class="td td-item">
                                 <div class="item-pic">
                                     <a href="#" class="J_MakePoint">
-                                        <img src="../../home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+                                        <img src="<%=order.good.Picurl %>" style="width:80px;height:80px;" class="itempic J_ItemImg">
                                     </a>
                                 </div>
                                 <div class="item-info">
                                     <div class="item-basic-info">
                                         <a href="#">
-                                            <p>
-                                                美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+                                            <p><%=order.good.Goodname %></p>
                                             <p class="info-little">
-                                                价值：¥120.00</p>
+                                                价值：¥<%=order.good.Joinpeoplenum %>.00</p>
                                             <br />
-                                            <progress value="22" max="100" style="width: 150px;"></progress>
+                                            <progress value="<%=order.good.JoinPeople %>" max="<%=order.good.Joinpeoplenum %>" style="width: 150px;"></progress>
                                         </a>
                                     </div>
                                 </div>
                             </li>
                             <li class="td td-number" style="margin-left: 80px;">
                                 <div class="item-number">
-                                    <span>进行中</span>
+                                    <span><%=order.good.Status %></span>
                                 </div>
                             </li>
                             <li>
                                 <div class="item-number" style="top: 23px; position: relative; left: 150px;">
-                                    <span>1人次</span>
+                                    <span><%=order.OrderSum %>人次</span>
                                 </div>
                             </li>
                             <li>
                                 <div class="item-number" style="position: relative; left: 320px;">
-                                    <a href="#">查看所有云购码</a>
+                                    <a href="../../OrderDetail.aspx?orderid=<%=order.OrderId%>&ordersum=<%=order.OrderSum%>">查看所有云购码</a>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <!--待发货-->
-            <div class="order-status2">
-                <div class="order-title">
-                    <div class="dd-num">
-                        订单编号：<a href="javascript:;">1601430</a></div>
-                    <span>成交时间：2015-12-20</span>
-                    <!--    <em>店铺：小桔灯</em>-->
-                </div>
-                <div class="order-content">
-                    <div class="order-left">
-                        <ul class="item-list">
-                            <li class="td td-item">
-                                <div class="item-pic">
-                                    <a href="#" class="J_MakePoint">
-                                        <img src="../../home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
-                                    </a>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-basic-info">
-                                        <a href="#">
-                                            <p>
-                                                美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-                                            <p class="info-little">
-                                                价值：¥120.00</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="td td-number" style="margin-left: 80px;">
-                                <div class="item-number">
-                                    <span>
-                                        已退购</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="top: 23px; position: relative; left: 150px;">
-                                    <span>5人次</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="position: relative; left: 320px;">
-                                    <a href="#">查看所有云购码</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--不同状态订单-->
-            <div class="order-status3">
-                <div class="order-title">
-                    <div class="dd-num">
-                        订单编号：<a href="javascript:;">1601430</a></div>
-                    <span>成交时间：2015-12-20</span>
-                    <!--    <em>店铺：小桔灯</em>-->
-                </div>
-                <div class="order-content">
-                    <div class="order-left">
-                        <ul class="item-list">
-                            <li class="td td-item">
-                                <div class="item-pic">
-                                    <a href="#" class="J_MakePoint">
-                                        <img src="../../home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
-                                    </a>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-basic-info">
-                                        <a href="#">
-                                            <p>
-                                                美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-                                            <p class="info-little">
-                                                价值：¥120.00</p>
-                                            <br />
-                                            <p class="info-little" >中奖云购码：<span>31415926</span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="td td-number" style="margin-left: 80px;">
-                                <div class="item-number">
-                                    <span>已揭晓</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="top: 23px; position: relative; left: 150px;">
-                                    <span>1人次</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="position: relative; left: 320px;">
-                                    <a href="#">查看所有云购码</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            
+            <%
+               }
 
-<!-- 进行中-->
-<div class="am-tab-panel am-fade" id="tab2">
-    <div class="order-top">
-        <div class="th th-item">
-            <td class="td-inner">
-                商品
-            </td>
+            %>
+            
+
         </div>
-        <div class="th th-number" style="margin-left: 80px;">
-            <td class="td-inner">
-                状态
-            </td>
-        </div>
-        <div class="th th-amount" style="margin-left: 140px;">
-            <td class="td-inner">
-                期间参与人数
-            </td>
-        </div>
-        <div class="th th-change" style="margin-left: 80px;">
-            <td class="td-inner">
-                操作
-            </td>
-        </div>
-    </div>
-    <div class="order-main">
+        
+        
+        
+        <!--已揭晓-->
         <div class="order-list">
-            <!--交易成功-->
-            <div class="order-status5">
-                <div class="order-title">
-                    <div class="dd-num">
-                        订单编号：<a href="javascript:;">1601430</a></div>
-                    <span>成交时间：2015-12-20</span>
-                </div>
-                <div class="order-content">
-                    <div class="order-left">
-                        <ul class="item-list">
-                            <li class="td td-item">
-                                <div class="item-pic">
-                                    <a href="#" class="J_MakePoint">
-                                        <img src="../../home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
-                                    </a>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-basic-info">
-                                        <a href="#">
-                                            <p>
-                                                美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-                                            <p class="info-little">
-                                                价值：¥120.00</p>
-                                            <br />
-                                            <progress value="22" max="100" style="width: 150px;"></progress>
+           
+            
+            <% foreach (var announcedOrder in AnnouncedOreders)
+
+               {
+
+            %>
+
+                <div class="order-status5">
+                    <div class="order-title">
+                        <div class="dd-num">
+                            订单编号：<a href="javascript:;"><%=announcedOrder.OrderId%></a></div>
+                        <span>成交时间：<%=announcedOrder.Addtime %></span>
+                    </div>
+                    <div class="order-content">
+                        <div class="order-left">
+                            <ul class="item-list">
+                                <li class="td td-item">
+                                    <div class="item-pic">
+                                        <a href="#" class="J_MakePoint">
+                                            <img src="<%=announcedOrder.good.Picurl %>" style="width:80px;height:80px;" class="itempic J_ItemImg">
                                         </a>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="td td-number" style="margin-left: 80px;">
-                                <div class="item-number">
-                                    <span>进行中</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="top: 23px; position: relative; left: 150px;">
-                                    <span>1人次</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="position: relative; left: 320px;">
-                                    <a href="#">查看所有云购码</a>
-                                </div>
-                            </li>
-                        </ul>
+                                    <div class="item-info">
+                                        <div class="item-basic-info">
+                                            <a href="#">
+                                                <p><%=announcedOrder.good.Goodname %></p>
+                                                <p class="info-little">
+                                                    价值：¥<%=announcedOrder.good.Joinpeoplenum %>.00</p>
+                                               
+                                                <br />
+                                                <p class="info-little" >中奖云购码：<span><%=announcedOrder.good.LuckyCode %></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="td td-number" style="margin-left: 80px;">
+                                    <div class="item-number">
+                                        <span><%=announcedOrder.good.Status %></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-number" style="top: 23px; position: relative; left: 150px;">
+                                        <span><%=announcedOrder.OrderSum %>人次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-number" style="position: relative; left: 320px;">
+                                        <a href="../../OrderDetail.aspx?orderid=<%=announcedOrder.OrderId%>&ordersum=<%=announcedOrder.OrderSum%>">查看所有云购码</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            
+            <%
+               }
+
+            %>
+            
+
         </div>
+        
+        
+        
+  
+        
+        
+        
+        
+        
+        
+
     </div>
 </div>
 
-<!-- 已揭晓-->
-<div class="am-tab-panel am-fade" id="tab3">
-    <div class="order-top">
-        <div class="th th-item">
-            <td class="td-inner">
-                商品
-            </td>
-        </div>
-        <div class="th th-number" style="margin-left: 80px;">
-            <td class="td-inner">
-                状态
-            </td>
-        </div>
-        <div class="th th-amount" style="margin-left: 140px;">
-            <td class="td-inner">
-                期间参与人数
-            </td>
-        </div>
-        <div class="th th-change" style="margin-left: 80px;">
-            <td class="td-inner">
-                操作
-            </td>
-        </div>
-    </div>
-    <div class="order-main">
-        <div class="order-list">
-            <!--不同状态订单-->
-            <div class="order-status3">
-                <div class="order-title">
-                    <div class="dd-num">
-                        订单编号：<a href="javascript:;">1601430</a></div>
-                    <span>成交时间：2015-12-20</span>
-                    <!--    <em>店铺：小桔灯</em>-->
-                </div>
-                <div class="order-content">
-                    <div class="order-left">
-                        <ul class="item-list">
-                            <li class="td td-item">
-                                <div class="item-pic">
-                                    <a href="#" class="J_MakePoint">
-                                        <img src="../../home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
-                                    </a>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-basic-info">
-                                        <a href="#">
-                                            <p>
-                                                美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-                                            <p class="info-little">
-                                                价值：¥120.00</p>
-                                            <br />
-                                            <p class="info-little" >中奖云购码：<span>31415926</span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="td td-number" style="margin-left: 80px;">
-                                <div class="item-number">
-                                    <span>已揭晓</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="top: 23px; position: relative; left: 150px;">
-                                    <span>1人次</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="position: relative; left: 320px;">
-                                    <a href="#">查看所有云购码</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 已退购-->
-<div class="am-tab-panel am-fade" id="tab4">
-    <div class="order-top">
-        <div class="th th-item">
-            <td class="td-inner">
-                商品
-            </td>
-        </div>
-        <div class="th th-number" style="margin-left: 80px;">
-            <td class="td-inner">
-                状态
-            </td>
-        </div>
-        <div class="th th-amount" style="margin-left: 140px;">
-            <td class="td-inner">
-                期间参与人数
-            </td>
-        </div>
-        <div class="th th-change" style="margin-left: 80px;">
-            <td class="td-inner">
-                操作
-            </td>
-        </div>
-    </div>
-    <div class="order-main">
-        <div class="order-list">
-
-            <!--待发货-->
-            <div class="order-status2">
-                <div class="order-title">
-                    <div class="dd-num">
-                        订单编号：<a href="javascript:;">1601430</a></div>
-                    <span>成交时间：2015-12-20</span>
-                    <!--    <em>店铺：小桔灯</em>-->
-                </div>
-                <div class="order-content">
-                    <div class="order-left">
-                        <ul class="item-list">
-                            <li class="td td-item">
-                                <div class="item-pic">
-                                    <a href="#" class="J_MakePoint">
-                                        <img src="../../home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
-                                    </a>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-basic-info">
-                                        <a href="#">
-                                            <p>
-                                                美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-                                            <p class="info-little">
-                                                价值：¥120.00</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="td td-number" style="margin-left: 80px;">
-                                <div class="item-number">
-                                    <span>
-                                        已退购</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="top: 23px; position: relative; left: 150px;">
-                                    <span>5人次</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-number" style="position: relative; left: 320px;">
-                                    <a href="#">查看所有云购码</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 </div>
 </div>
 </div>
@@ -503,13 +262,13 @@
 <div class="footer">
     <div class="footer-hd">
         <p>
-            <a href="# ">二手云购</a> <b>|</b> <a href="# ">云购首页</a> <b>|</b> <a href="# ">支付宝</a>
+            <a href="#">二手云购</a> <b>|</b> <a href="#">云购首页</a> <b>|</b> <a href="# ">支付宝</a>
             <b>|</b> <a href="# ">物流</a>
         </p>
     </div>
     <div class="footer-bd">
         <p>
-            <a href="# ">关于二手运购</a> <a href="# ">联系我们</a> <em>2017-2018 CloudMarket.com 版权所有.
+            <a href="#">关于二手运购</a> <a href="# ">联系我们</a> <em>2017-2018 CloudMarket.com 版权所有.
             </em>
         </p>
     </div>
@@ -518,47 +277,38 @@
 <aside class="menu">
     <ul>
         <li class="person active">
-            <a href="index.html"><i class="am-icon-user"></i>个人中心</a>
+            <a href="../../Person_index.aspx"><i class="am-icon-user"></i>个人中心</a>
         </li>
+
         <li class="person">
-            <p><i class="am-icon-newspaper-o"></i>个人资料</p>
+            <p><i class="am-icon-balance-scale"></i><a href="../../PersonalPage/PurchaseRecord/AllPurchaseRecord.aspx">云购记录</a></p>
             <ul>
-                <li> <a href="information.html">个人信息</a></li>
-                <li> <a href="safety.html">安全设置</a></li>
-                <li> <a href="address.html">地址管理</a></li>
-                <li> <a href="cardlist.html">快捷支付</a></li>
-            </ul>
-        </li>
-        <li class="person">
-            <p><i class="am-icon-balance-scale"></i><a href="AllPurchaseRecord.aspx">云购记录</a></p>
-            <ul>
-                <li><a href="JinxingPurchase.aspx">进行中</a></li>
-                <li> <a href="AnnouncedPurchase.aspx">已揭晓</a></li>
-                <li> <a href="ExitPurchase.aspx">已退购</a></li>
-            </ul>
-        </li>
-        <li class="person">
-            <p><i class="am-icon-dollar"></i><a href="#">已获得的商品</a></p>
-            <ul>
-                <li> <a href="points.html">待确认地址</a></li>
-                <li> <a href="coupon.html">代发货</a></li>
-                <li> <a href="bonus.html">待收获</a></li>
+                <li><a href="../../PersonalPage/PurchaseRecord/JinxingPurchase.aspx">进行中</a></li>
+                <li> <a href="../../PersonalPage/PurchaseRecord/AnnouncedPurchase.aspx">已揭晓</a></li>
             </ul>
         </li>
 
         <li class="person">
             <p><i class="am-icon-tags"></i><a href="#">已发布的商品</a></p>
             <ul>
-                <li> <a href="../ReleaseGoods/Addgood.aspx">添加商品</a></li>
-                <li> <a href="../ReleaseGoods/TradeSuccessGoods.aspx">已成功交易的商品</a></li>	
-                <li> <a href="../ReleaseGoods/ProcessingGoods.aspx">进行中的商品</a></li>													
+                <li> <a href="../../PersonalPage/ReleaseGoods/Addgood.aspx">添加商品</a></li>
+                <li> <a href="../../PersonalPage/ReleaseGoods/TradeSuccessGoods.aspx">已成功交易的商品</a></li>	
+                <li> <a href="../../PersonalPage/ReleaseGoods/ProcessingGoods.aspx">进行中的商品</a></li>													
             </ul>
         </li>
-
+                    
+        <li class="person">
+            <p><i class="am-icon-newspaper-o"></i>个人资料</p>
+            <ul>
+                <li> <a href="../../information.html">个人信息</a></li>
+                <li> <a href="../../safety.html">安全设置</a></li>
+                <li> <a href="../../cardlist.html">快捷支付</a></li>
+            </ul>
+        </li>
         <li class="person">
             <p><i class="am-icon-qq"></i>在线客服</p>
             <ul>
-                <li> <a href="../OnlineService/Suggest.aspx">意见反馈</a></li>							
+                <li> <a href="../../PersonalPage/OnlineService/SuggestPage.aspx">意见反馈</a></li>							
             </ul>
         </li>
     </ul>

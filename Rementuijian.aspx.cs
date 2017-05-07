@@ -19,4 +19,11 @@ public partial class Rementuijian : System.Web.UI.Page
         return username;
 
     }
+
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
+    }
+
 }

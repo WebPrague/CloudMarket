@@ -11,6 +11,10 @@ public partial class TradeSuccessGoods : System.Web.UI.Page
     public List<Good> goods = null;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('亲爱的，请先登录！');location.href='../../Login.aspx';</script>");
+        }
         int userid = getUserId();
         goods = GoodService.GetGoodByUserId(userid);
     }
@@ -29,5 +33,12 @@ public partial class TradeSuccessGoods : System.Web.UI.Page
             userid = UserService.getUserIdByEmail(getUserName());
         }
         return userid;
+    }
+
+
+    protected void logout(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Write("<script>alert('注销登录！');location.href='../../Index.aspx';</script>");
     }
 }
