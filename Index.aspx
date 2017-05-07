@@ -215,7 +215,7 @@
                                 <br/>
                                 <div class="s-price">
                                     <a class="s-buy"  href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
-                                    <a class="s-buy"  href="ShopCar.aspx" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+                                    <a class="s-buy"  href="PersonalShopCar.aspx" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
                                 </div>                           	  
                             </div>								
                         </div>

@@ -21,7 +21,7 @@
 </head>
 
 <body>               
-
+<form method="post" runat="server">
 <!--顶部导航条 -->
 <div class="am-container header">
     <ul class="message-r">
@@ -30,11 +30,11 @@
                 <a id="userlogin" href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
         </div>
         <div class="topMessage home">
-            <form runat="server">
+        
                 <div class="menu-hd" id="userlogout">
                     <a  runat="server"  class="h" onserverclick="logout">注销登录</a>
                 </div>
-            </form>
+          
         </div>
         <div class="topMessage my-shangcheng">
             <div class="menu-hd MyShangcheng"><a href="Index.aspx" target="_top">云购首页</a></div>
@@ -63,14 +63,15 @@
 <div class="clear"></div>
 <div class="concent">
     <div class="paycont">
-        <form method="post" runat="server">
+      
             <div class="clear"></div>
             <div class="logistics">
-                <h3>选择支付方式</h3>
+                <h3>1.请选择支付方式(我们都是好孩子，商家也很辛苦，请自觉扫码支付！)</h3>
                 <ul class="pay-list">
-                    <li class="pay card"><img src="home/images/wangyin.jpg" />银联<span></span></li>
                     <li class="pay qq"><img src="home/images/weizhifu.jpg" />微信<span></span></li>
+                    <img  src="home/images/PersonWeixin.jpg" style="width:200px; height:200px; float: left;"/>
                     <li class="pay taobao"><img src="home/images/zhifubao.jpg" />支付宝<span></span></li>
+                    <img  src="home/images/PersonZhifubao.jpg" style="width:200px; height:200px;"/>
                 </ul>
             </div>
             <div class="clear"></div>
@@ -167,7 +168,7 @@
                     <div class="clear"></div>
                 </div>
             </div>   
-        </form>
+
     </div>
 
 
@@ -221,5 +222,6 @@
 
 
 </script>
+</form>
 </body>
 </html>
