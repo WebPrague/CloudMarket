@@ -142,6 +142,12 @@ public class GoodService
             good.RemainPeople = rdr.GetInt32("remainpeople");
             good.Status = rdr.GetString("status");
             good.LuckyCode = rdr.GetString("luckycode");
+            good.Userid = rdr.GetInt32("userid");
+                good.user = UserService.GetUserPhonenumberByUserId(good.Userid);
+            //good.user = UserService.GetUserByUserId(good.Userid);
+
+            //order.good = GoodService.GetAnnouncedGoodMsg(order.GoodId);
+
         }
         comm.Clone();
         con.Close();

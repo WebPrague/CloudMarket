@@ -96,6 +96,80 @@ public class UserService
         return false;
     }
 
+    public static User GetUserPhonenumberByUserId(int userid)
+    {
+        string sql = "select * from user where id=?userid";
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?userid", userid));
+        MySqlDataReader rdr = comm.ExecuteReader();
+        User user = new User();
+        while (rdr.Read())
+        {
+            user.Id = rdr.GetInt32("id");
+            user.Phonenumber = rdr.GetString("phonenumber");
+            //user.Email = rdr.GetString("email");
+            //order.good = GoodService.GetAnnouncedGoodMsg(order.GoodId);
+        }
+        comm.Clone();
+        con.Close();
+        return user;
+    }
+
+    public static User GetUserMailByUserId(int userid)
+    {
+        string sql = "select * from user where id=?userid";
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?userid", userid));
+        MySqlDataReader rdr = comm.ExecuteReader();
+        User user = new User();
+        while (rdr.Read())
+        {
+            user.Id = rdr.GetInt32("id");
+            //user.Phonenumber = rdr.GetString("phonenumber");
+            user.Email = rdr.GetString("email");
+            //order.good = GoodService.GetAnnouncedGoodMsg(order.GoodId);
+        }
+        comm.Clone();
+        con.Close();
+        return user;
+    }
+
+    public static bool judgeEmailLoginByUserId(int userid)
+    {
+
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open(); //进行数据库连接
+        string sql_email = "select * from user where id=@userid";
+        MySqlCommand comm_email = new MySqlCommand(sql_email, con);
+        comm_email.Parameters.Add("userid", userid);
+        MySqlDataReader sdr_email = comm_email.ExecuteReader();
+
+        User user = new User();
+
+        if (sdr_email.Read())
+        {
+
+            if (sdr_email.GetString("email") == "0")
+            {
+                sdr_email.Close();
+                comm_email.Clone();
+                con.Close();
+                return false;
+            }
+
+        }
+            sdr_email.Close();
+            comm_email.Clone();
+            con.Close();
+            return true;
+        
+
+
+    }
 
 
 

@@ -139,8 +139,12 @@
                                                                         <%=order.good.Goodname %></p>
                                                                     <p class="info-little">
                                                                         价值：¥<%=order.good.Joinpeoplenum %>.00</p>
-                                                                    <br />
+                                                        
                                                                     <p class="info-little" >中奖云购码：<span><%=order.good.LuckyCode %></span></p>
+                                                                    <p class="info-little">
+                                                                        中奖请联系发布者：<%=order.good.user.Phonenumber %></p>
+                                                                    
+
                                                                 </a>
                                                             </div>
                                                         </div>

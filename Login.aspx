@@ -56,7 +56,7 @@
                     <form method="post" id="loginForm1" action="Login.aspx" runat="server">
                     <div class="user-name">
                     <label for="user"><img src="home/images/user.png"/></label>
-                      <input type="text" name="username"  id="username"  placeholder="邮箱/手机/用户名" runat="server" />
+                      <input type="text" name="username"  id="username"  placeholder="请输入手机号" runat="server" />
                     </div>
                     <div class="user-pass">
                     <label for="user"><img src="home/images/password.png"/></label>

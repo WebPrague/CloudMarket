@@ -113,11 +113,13 @@
             <div class="login-box">
                 <div class="am-tabs" id="doc-my-tabs">
                     <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                        <li class="am-active"><a href="">邮箱注册</a></li>
+                        <!--<li class="am-active"><a href="">邮箱注册</a></li>-->
                         <li><a href="">手机号注册</a></li>
                     </ul>
                     <div class="am-tabs-bd">
-                        <div class="am-tab-panel am-active">
+                        
+
+                        <!--<div class="am-tab-panel am-active">
                             <div class="user-email">
                                 <label for="email">
                                     <img src="home/images/email.png" /></label>
@@ -139,7 +141,10 @@
                                 <asp:Button runat="server" ID="registerMailBtn" Text="注册" class="am-btn am-btn-primary am-btn-sm am-fl"
                                     OnClientClick="doMailRegister()" OnClick="mailRegister" />
                             </div>
-                        </div>
+                        </div>-->
+                        
+                        
+
                         <div class="am-tab-panel">
                             <div class="user-phone">
                                 <label for="phone">

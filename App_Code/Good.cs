@@ -19,4 +19,5 @@ public class Good
     public int JoinPeople { get; set; }
     public int RemainPeople { get; set; }
     public string LuckyCode { get; set; }
+    public User user { get; set; }
 }
