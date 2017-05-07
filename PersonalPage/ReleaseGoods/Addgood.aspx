@@ -106,7 +106,7 @@
                         </div>
                         <div class="s-content">
                             <div class="info-main">
-                                <form class="am-form am-form-horizontal" method="post" enctype="multipart/form-data" id="addGoodsForm1" runat="server">
+                                <form class="am-form am-form-horizontal" method="POST" enctype="multipart/form-data" id="addGoodsForm1" runat="server">
                                 <div class="am-form-group">
                                 <div style="float: left">
                                         <label  class="am-form-label" style="float: left">
@@ -134,8 +134,11 @@
                                     </div>
                                 </div>
                                 <div class="info-btn" style="margin-left:110px;"  >
-                 <asp:Button runat="server" ID="addGoodsBtn" Text="添加" class="am-btn am-btn-danger"
-                                    OnClientClick="doAddGoods()" OnClick="addGoods" />
+
+                                    
+                                    <input type="button"  value="添加" class="am-btn am-btn-danger anniu" onclick="doAddGoods()" />
+                                    
+
                                 </div>
                                 </form>
                             </div>
@@ -185,9 +188,7 @@
                 <li class="person">
                     <p><i class="am-icon-newspaper-o"></i>个人资料</p>
                     <ul>
-                        <li> <a href="../../information.html">个人信息</a></li>
-                        <li> <a href="../../safety.html">安全设置</a></li>
-                        <li> <a href="../../cardlist.html">快捷支付</a></li>
+                        <li> <a href="../../ModifyPassword.aspx">个人信息</a></li>
                     </ul>
                 </li>
                 <li class="person">

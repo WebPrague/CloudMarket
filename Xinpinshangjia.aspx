@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>热门推荐</title>
+    <title>新品上架</title>
 
     <link href="css/admin.css" rel="stylesheet" type="text/css" />
     <link href="css/amazeui.css" rel="stylesheet" type="text/css" />

@@ -166,9 +166,22 @@ public class UserService
             comm_email.Clone();
             con.Close();
             return true;
-        
+    }
 
 
+    public static void ModifyUserPwdByUsername(String username, string newPwd)
+    {
+
+        //User user = new User();
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        string sql = "update user set phone_password=?newPwd where phonenumber=?username";
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?newPwd", newPwd));
+        comm.Parameters.Add(new MySqlParameter("?username",username));
+        comm.ExecuteNonQuery();
+        comm.Clone();
+        con.Close();
     }
 
 

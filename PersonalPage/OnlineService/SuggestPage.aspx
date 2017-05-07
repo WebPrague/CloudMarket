@@ -93,7 +93,7 @@
 		</header>
 
 		<div class="nav-table">
-			<div class="long-title"><span class="all-goods">全部分类</span></div>
+			<div class="long-title"><span class="all-goods">二手云购</span></div>
 			<div class="nav-cont">
 			    <ul>
 			        <li class=""><a href="../../Index.aspx">首页</a></li>
@@ -139,13 +139,13 @@
 				<div class="footer">
 					<div class="footer-hd">
                     <p>
-                        <a href="# ">二手云购</a> <b>|</b> <a href="#">云购首页</a> <b>|</b> <a href="# ">支付宝</a>
-                        <b>|</b> <a href="# ">物流</a>
+                        <a href="#">二手云购</a> <b>|</b> <a href="../../Index.aspx">云购首页</a> 
+   
                     </p>
 					</div>
 					<div class="footer-bd">
 						<p>
-                        <a href="# ">关于二手运购</a> <a href="# ">联系我们</a> <em>2017-2018 CloudMarket.com 版权所有.
+                        <a href="#">关于二手运购</a> <a href="#">联系我们</a> <em>2017-2018 CloudMarket.com 版权所有.
                         </em>
 						</p>
 					</div>
@@ -178,15 +178,13 @@
 		            <li class="person">
 		                <p><i class="am-icon-newspaper-o"></i>个人资料</p>
 		                <ul>
-		                    <li> <a href="../../information.html">个人信息</a></li>
-		                    <li> <a href="../../safety.html">安全设置</a></li>
-		                    <li> <a href="../../cardlist.html">快捷支付</a></li>
+		                    <li> <a href="../../ModifyPassword.aspx">个人信息</a></li>
 		                </ul>
 		            </li>
 		            <li class="person">
 		                <p><i class="am-icon-qq"></i>在线客服</p>
 		                <ul>
-		                    <li> <a href="../../PersonalPage/OnlineService/Suggest.aspx">意见反馈</a></li>							
+		                    <li> <a href="../../PersonalPage/OnlineService/SuggestPage.aspx">意见反馈</a></li>							
 		                </ul>
 		            </li>
 		        </ul>

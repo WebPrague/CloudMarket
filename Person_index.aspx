@@ -67,7 +67,7 @@
 			</article>
 		</header>
 		<div class="nav-table">
-			<div class="long-title"><span class="all-goods">全部分类</span></div>
+			<div class="long-title"><span class="all-goods">二手云购</span></div>
 			<div class="nav-cont">
 				<ul>
 					<li class="index"><a href="#">首页</a></li>
@@ -219,9 +219,7 @@
 				    <li class="person">
 				        <p><i class="am-icon-newspaper-o"></i>个人资料</p>
 				        <ul>
-				            <li> <a href="information.html">个人信息</a></li>
-				            <li> <a href="safety.html">安全设置</a></li>
-				            <li> <a href="cardlist.html">快捷支付</a></li>
+				            <li> <a href="ModifyPassword.aspx">个人信息</a></li>
 				        </ul>
 				    </li>
 					<li class="person">

@@ -19,6 +19,14 @@ public partial class Addgood : System.Web.UI.Page
             Response.Write("<script>alert('亲爱的，请先登录！');location.href='../../Login.aspx';</script>");
         }
         imgLoad();
+
+        if (Request.HttpMethod.Equals("POST"))
+        {
+            addGoods();
+        }
+
+
+
     }
     public string imgLoad()
     {
@@ -44,7 +52,7 @@ public partial class Addgood : System.Web.UI.Page
                 string imgName = sArray[10];
                 imgName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + rnd.Next(10, 99).ToString() + fileExt;
                 imgUrl = qiniuload.upLoadImg(fileName, imgName);
-                Response.Write("<script>alert('图片上传成功！')</script>");
+                //Response.Write("<script>alert('图片上传成功！')</script>");
                 return imgUrl;
             }
 
@@ -69,7 +77,7 @@ public partial class Addgood : System.Web.UI.Page
        }
     }
 
-    protected void addGoods(object sender, EventArgs e)
+    public void addGoods()
     {
         string goodsName = goodsname.Value;
         string goodsValue = goodsvalue.Value;
