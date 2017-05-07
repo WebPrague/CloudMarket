@@ -77,10 +77,10 @@
                     </div>
 
                     <div class="topMessage my-shangcheng">
-                        <div class="menu-hd MyShangcheng"><a href="Person_index.aspx" target="_top">我的二手云购</a></div>
+                        <div class="menu-hd MyShangcheng"><a href="PersonalPage/PurchaseRecord/AllPurchaseRecord.aspx" target="_top">我的二手云购</a></div>
                     </div>
                     <div class="topMessage mini-cart">
-                        <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
+                        <div class="menu-hd"><a id="mc-menu-hd" href="About.aspx" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
                     </div>
                 </ul>
             </div>
@@ -100,7 +100,7 @@
     </article>
 </header>
 <div class="nav-table">
-    <div class="long-title"><span class="all-goods">全部分类</span></div>
+    <div class="long-title"><span class="all-goods">二手云购</span></div>
     <div class="nav-cont">
         <ul>
             <li class="index"><a href="Index.aspx">首页</a></li>
@@ -175,19 +175,15 @@
         <div class="footer">
             <div class="footer-hd">
                 <p>
-                    <a href="# ">二手云购</a>
+                    <a href="About.aspx">二手云购</a>
                     <b>|</b>
-                    <a href="# ">云购首页</a>
-                    <b>|</b>
-                    <a href="# ">支付宝</a>
-                    <b>|</b>
-                    <a href="# ">物流</a>
+                    <a href="Index.aspx">云购首页</a>
                 </p>
             </div>
             <div class="footer-bd">
                 <p>
-                    <a href="# ">关于二手运购</a>
-                    <a href="# ">联系我们</a>
+                    <a href="About.aspx">关于二手云购</a>
+
                     <em>2017-2018 CloudMarket.com 版权所有. </em>
                 </p>
             </div>
@@ -198,7 +194,7 @@
     <aside class="menu">
         <ul>
             <li class="person active">
-                <a href="Person_index.aspx"><i class="am-icon-user"></i>个人中心</a>
+                <a href="PersonalPage/PurchaseRecord/AllPurchaseRecord.aspx"><i class="am-icon-user"></i>个人中心</a>
             </li>
 
             <li class="person">
@@ -233,13 +229,6 @@
         </ul>
 
     </aside>
-</div>
-<!--引导 -->
-<div class="navCir">
-    <li><a href="Index.aspx"><i class="am-icon-home "></i>首页</a></li>
-    <li><a href="../home/sort.html"><i class="am-icon-list"></i>分类</a></li>
-    <li><a href="../home/shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
-    <li class="active"><a href="index.html"><i class="am-icon-user"></i>我的</a></li>
 </div>
     
     

@@ -70,10 +70,10 @@
 					        </div>
 
 					        <div class="topMessage my-shangcheng">
-					            <div class="menu-hd MyShangcheng"><a href="../../Person_index.aspx" target="_top">我的二手云购</a></div>
+					            <div class="menu-hd MyShangcheng"><a href="../../PersonalPage/PurchaseRecord/AllPurchaseRecord.aspx" target="_top">我的二手云购</a></div>
 					        </div>
 					        <div class="topMessage mini-cart">
-					            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
+					            <div class="menu-hd"><a id="mc-menu-hd" href="../../About.aspx" target="_top"><span>帮助</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
 					        </div>
 					    </ul>
 						</div>
@@ -139,13 +139,13 @@
 				<div class="footer">
 					<div class="footer-hd">
                     <p>
-                        <a href="#">二手云购</a> <b>|</b> <a href="../../Index.aspx">云购首页</a> 
+                        <a href="../../About.aspx">二手云购</a> <b>|</b> <a href="../../Index.aspx">云购首页</a> 
    
                     </p>
 					</div>
 					<div class="footer-bd">
 						<p>
-                        <a href="#">关于二手运购</a> <a href="#">联系我们</a> <em>2017-2018 CloudMarket.com 版权所有.
+                        <a href="../../About.aspx">关于二手云购</a> <em>2017-2018 CloudMarket.com 版权所有.
                         </em>
 						</p>
 					</div>
@@ -155,7 +155,7 @@
 		    <aside class="menu">
 		        <ul>
 		            <li class="person active">
-		                <a href="../../Person_index.aspx"><i class="am-icon-user"></i>个人中心</a>
+		                <a href="#"><i class="am-icon-user"></i>个人中心</a>
 		            </li>
 
 		            <li class="person">

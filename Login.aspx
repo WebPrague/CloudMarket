@@ -79,7 +79,7 @@
     <div class="footer ">
         <div class="footer-bd ">
             <p>
-                <a href="#">关于云购</a> <a href="#">联系我们</a> <em>© 2017-2018 CloudMarket.com 版权所有
+                <a href="About.aspx">关于云购</a> <em>© 2017-2018 CloudMarket.com 版权所有
                 </em>
             </p>
         </div>
