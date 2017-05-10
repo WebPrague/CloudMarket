@@ -56,6 +56,7 @@ public class ShopCarService
         comm.Clone();
         con.Close();
         return shopcars;
+
     }
 
     public static void updateShopCar(int shopcarid, int userid, int buytime)
@@ -114,6 +115,29 @@ public class ShopCarService
         con.Close();
     }
 
+    public static bool judgeShopCar(int userid, int goodid)
+    {
+        string sql = "select * from shopcar where userid=?userid and goodid=?goodid";
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?userid", userid));
+        comm.Parameters.Add(new MySqlParameter("?goodid",goodid));
+        MySqlDataReader rdr = comm.ExecuteReader();
+
+        //bool flag = true;
+
+        if (rdr.Read())
+        {
+            //flag = false;
+            return false;
+        }
+        else
+        {
+            return true;
+
+        }
+    }
 
 
 

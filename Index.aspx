@@ -23,6 +23,9 @@
 
 	<body>
 		<div class="hmtop">
+		    
+            
+
 			<!--顶部导航条 -->
 			<div class="am-container header">
 				<ul class="message-l">
@@ -80,6 +83,10 @@
 
 				<div class="clear"></div>
 			</div>
+        
+        
+        
+
              <b class="line"></b>
 			<div class="shopNav">
 				<div class="slideall" style="height: auto;">
@@ -215,7 +222,7 @@
                                 <br/>
                                 <div class="s-price">
                                     <a class="s-buy"  href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
-                                    <a class="s-buy"  href="PersonalShopCar.aspx" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
+                                    <a class="s-buy"  href="Jump.aspx?id=<%=good.Id%>" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
                                 </div>                           	  
                             </div>								
                         </div>

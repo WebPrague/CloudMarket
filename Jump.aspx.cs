@@ -42,10 +42,27 @@ public partial class Jump : System.Web.UI.Page
             userid = UserService.getUserIdByEmail(getUserName());
         }
         int buytime = 1;
-       
-        //添加至购物车表
-       ShopCarService.addShopCar(userid,goodid,buytime);
-       Response.Write("<script>alert('添加购物车成功！');location.href='Index.aspx';</script>");
+
+        //添加之前应先检索购物车中是否存在此商品
+        if (ShopCarService.judgeShopCar(userid, goodid) == false)
+        {
+
+            Response.Write("<script>alert('亲，商品已在购物车中！');location.href='Index.aspx';</script>");
+        }
+        else
+        {
+            //添加至购物车表
+           ShopCarService.addShopCar(userid,goodid,buytime);
+
+            Response.Write("<script>alert('添加购物车成功！');location.href='Index.aspx';</script>");
+        }
+
+
+
+
+
+
+
     }
 
 }

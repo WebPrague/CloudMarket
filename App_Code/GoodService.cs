@@ -301,6 +301,35 @@ public class GoodService
     }
 
 
+    public static List<Good> getSearchGoods(string searchText)
+    {
+        List<Good> searchGoods = new List<Good>();
+
+        string sql = "select * from good where name like '%?searchText%'";
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        MySqlCommand comm = new MySqlCommand(sql,con);
+        comm.Parameters.Add(new MySqlParameter("?searchText", searchText));
+        MySqlDataReader rdr = comm.ExecuteReader();
+        while (rdr.Read())
+        {
+            Good good = new Good();
+            good.Id = rdr.GetInt32("id");
+            good.Goodname = rdr.GetString("name");
+            good.Goodvalue = rdr.GetString("value");
+            good.Joinpeoplenum = rdr.GetInt32("joinpeoplenum");
+            good.Picurl = rdr.GetString("picurl");
+            good.JoinPeople = rdr.GetInt32("joinpeople");
+            good.RemainPeople = rdr.GetInt32("remainpeople");
+            good.LuckyCode = rdr.GetString("luckycode");
+            good.Status = rdr.GetString("status");
+            searchGoods.Add(good);
+        }
+        comm.Clone();
+        con.Close();
+        return searchGoods;
+    }
+
 
 
 
