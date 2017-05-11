@@ -305,11 +305,11 @@ public class GoodService
     {
         List<Good> searchGoods = new List<Good>();
 
-        string sql = "select * from good where name like '%?searchText%'";
+        string sql = "select * from good where name like '%" + searchText + "%'";
         MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
         con.Open();
         MySqlCommand comm = new MySqlCommand(sql,con);
-        comm.Parameters.Add(new MySqlParameter("?searchText", searchText));
+
         MySqlDataReader rdr = comm.ExecuteReader();
         while (rdr.Read())
         {

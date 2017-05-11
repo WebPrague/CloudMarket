@@ -24,7 +24,7 @@
 	<body>
 		<div class="hmtop">
 		    
-            
+		    <form runat="server">
 
 			<!--顶部导航条 -->
 			<div class="am-container header">
@@ -42,11 +42,11 @@
                         <a id="userlogin" href="Index.aspx" target="_top" class="h"><%=getUserName()%></a></div>
 					</div>
                     <div class="topMessage home">
-                        <form runat="server">
+                      
 						<div class="menu-hd" id="userlogout">
                             <a  runat="server"  class="h" onserverclick="logout">注销登录</a>
                         </div>
-                        </form>
+                  
 					</div>
 				    <div class="topMessage my-shangcheng">
 				        <div class="menu-hd MyShangcheng"><a href="Index.aspx" target="_top">云购首页</a></div>
@@ -74,14 +74,18 @@
 
 					<div class="search-bar pr">
 						<a name="index_none_header_sysc" href="#"></a>
-						<form>
-							<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off" />
-							<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" />
-						</form>
+			
+							<input id="searchInput" type="text" placeholder="请输入搜索内容......"  autocomplete="off" />
+							<a  type="button" href="javascript:search()" >搜索</a>
+					
 					</div>
 				</div>
 
 				<div class="clear"></div>
+            
+            
+		    </form>
+
 			</div>
         
         
@@ -269,6 +273,13 @@
 
                 $("#login").hide();
                 $("#userlogout").show();
+            }
+        </script>
+        
+        <script type="text/javascript">
+            function search() {
+                var search_input = document.getElementById("searchInput").value;
+                window.location.href = "Search.aspx?content=" + search_input;
             }
         </script>
 	</body>

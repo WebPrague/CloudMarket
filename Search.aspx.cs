@@ -15,6 +15,7 @@ public partial class Search : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //goods = GoodService.getSearchGoods();
+      goods =  getSearch();
     }
     public string getUserName()
     {
@@ -28,6 +29,16 @@ public partial class Search : System.Web.UI.Page
         Session.Abandon();
         Response.Write("<script>alert('注销登录！');location.href='Index.aspx';</script>");
     }
+
+    public List<Good> getSearch()
+    {
+        string searchText = Request.QueryString["content"].ToString();
+
+        List<Good> searchGoods = new List<Good>();
+        searchGoods = GoodService.getSearchGoods(searchText);
+        return searchGoods;
+    }
+
 
 
 

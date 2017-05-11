@@ -106,8 +106,7 @@
             <div class="f2">
                 <div class="am-container ">
                     <div class="shopTitle ">
-                        <h4 class="floor-title">热门推荐</h4>
-                        <div class="floor-subtitle"><h3> 走过路过，不要错过！</h3></div>
+                        <h4 class="floor-title">搜索结果</h4>
                     </div>
                 </div>
                 <div class="am-g am-g-fixed">
@@ -127,10 +126,11 @@
                                 <br />
                                 <br />
                                 <p class="s-title">已参与：<%=good.JoinPeople%></p>
-                                <p style="width:90%;margin-left: 69%; bottom:18px; text-align: left;padding:0px 2px ;position:relative;">剩余：<%=good.RemainPeople%></p>
+                                <p id="remainPeople" style="width:90%;margin-left: 69%; bottom:18px; text-align: left;padding:0px 2px ;position:relative;">剩余：<%=good.RemainPeople%></p>
                                 <p>总需人数：<%=good.Joinpeoplenum %></p>
+                                <p>状态：<%=good.Status %></p>
                                 <br/>
-                                <div class="s-price">
+                                <div class="s-price" id="selectDisplay">
                                     <a class="s-buy" href="AddOrder.aspx?id=<%=good.Id%>&remainpeople=<%=good.RemainPeople%>" style="position:absolute;right:95px;width:170px; height:37px;display:block; text-align:center;font-size:20px;" >立即加入云购</a>
                                     <a class="s-buy" href="#" style=" height:37px;" ><img src="home/images/addgouwuche.png" /></a>
                                 </div>                           	  
@@ -174,6 +174,18 @@
         $("#login").hide();
         $("#userlogout").show();
     }
+
+    var judgeDisplay = document.getElementById('remainPeople').innerText;
+    if (judgeDisplay == "剩余：0") {
+
+        $("#selectDisplay").hide();
+    } else {
+
+        $("#selectDisplay").show();
+
+    }
+
+
 </script>
 
 </body>

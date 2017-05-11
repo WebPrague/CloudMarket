@@ -36,11 +36,10 @@ public partial class Index : System.Web.UI.Page
         Response.Write("<script>alert('添加购物车成功！');</script>");
         //Good good = new Good();
         //string goodId = (((LinkButton)sender).CommandArgument.ToString());
-
-
-
-
     }
+
+
+
 
 
 }
