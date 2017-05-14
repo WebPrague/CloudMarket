@@ -184,6 +184,46 @@ public class UserService
         con.Close();
     }
 
+    public static void updateUserCountByUserId(int userid, int money)
+    {
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        string sql = "update user set money=?money where id=?userid";
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?money", money));
+        comm.Parameters.Add(new MySqlParameter("?userid", userid));
+        comm.ExecuteNonQuery();
+        comm.Clone();
+        con.Close();
+
+    }
+
+    public static User GetUserMsgByUserId(int userid)
+    {
+        User user = new User();
+        MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
+        con.Open();
+        string sql = "select * from user where id=?userid";
+        MySqlCommand comm = new MySqlCommand(sql, con);
+        comm.Parameters.Add(new MySqlParameter("?userid", userid));
+        //comm.Parameters.Add(new MySqlParameter("?username", username));
+        MySqlDataReader rdr = comm.ExecuteReader();
+        while (rdr.Read())
+        {
+            user.Id = rdr.GetInt32("id");
+            //user.Phonenumber = rdr.GetString("phonenumber");
+            //user.Email = rdr.GetString("email");
+            //order.good = GoodService.GetAnnouncedGoodMsg(order.GoodId);
+            user.Money = rdr.GetInt32("money"); 
+        }
+        comm.Clone();
+        con.Close();
+
+        return user;
+    }
+
+
+
 
 
 }

@@ -13,6 +13,7 @@ public class User
     public string Password { get; set; }
     public string Phonenumber { get; set; }
     public string Username { get; set; }
+    public int Money { get; set; }
 
     public User()
 	{
