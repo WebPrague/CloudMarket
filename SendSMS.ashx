@@ -26,8 +26,8 @@ public class SendSMS : IHttpHandler, System.Web.SessionState.IRequiresSessionSta
             text = text.Replace("{code}", checkCode);
             Console.WriteLine(checkCode);
             context.Session["cc"] = checkCode;
-            //SMS.sendSMS(phone_number, text);
-            context.Response.Write(getResult(0, "发送成功" +  checkCode));
+            SMS.sendSMS(phone_number, text);
+            context.Response.Write(getResult(0, "发送成功"));
         }
 
     }

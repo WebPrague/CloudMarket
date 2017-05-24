@@ -45,9 +45,16 @@ public partial class PersonalPage_OnlineService_SuggestPage : System.Web.UI.Page
             userid = UserService.getUserIdByEmail(getUserName());
         }
 
-        SuggestService.addSuggest(userid,problem);
-    
-        Response.Write("<script>alert('反馈提交成功！！');location.href='../../Person_index.aspx';</script>");
+        if (SuggestBLL.addSuggest(userid, problem))
+        {
+            Response.Write("<script>alert('反馈提交成功！！');location.href='../../PersonalPage/PurchaseRecord/AllPurchaseRecord.aspx';</script>");
+        }
+        else
+        {
+            Response.Write("<script>alert('反馈提交失败！！');location.href='../../PersonalPage/PurchaseRecord/AllPurchaseRecord.aspx';</script>");
+        }
+
+
     }
 
 

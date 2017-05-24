@@ -143,7 +143,7 @@ public class GoodService
             good.Status = rdr.GetString("status");
             good.LuckyCode = rdr.GetString("luckycode");
             good.Userid = rdr.GetInt32("userid");
-                good.user = UserService.GetUserPhonenumberByUserId(good.Userid);
+            good.user = UserService.GetUserPhonenumberByUserId(good.Userid);
             //good.user = UserService.GetUserByUserId(good.Userid);
 
             //order.good = GoodService.GetAnnouncedGoodMsg(order.GoodId);

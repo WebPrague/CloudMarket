@@ -7,9 +7,9 @@ using MySql.Data.MySqlClient;   //引入命名空间
 /// <summary>
 /// SuggestService 的摘要说明
 /// </summary>
-public class SuggestService
+public class SuggestDAL
 {
-    public SuggestService()
+    public SuggestDAL()
     {
         //
         // TODO: 在此处添加构造函数逻辑
@@ -21,7 +21,7 @@ public class SuggestService
         Suggest suggest = new Suggest();
         MySqlConnection con = new MySqlConnection(Config_MySql.sqlUrl);
         con.Open();
-        string sql = "insert into suggest(userid,problem)values(@userid,@problem)";
+        string sql = "insert into suggest(userid,problem,add_time)values(@userid,@problem,now())";
         MySqlCommand comm = new MySqlCommand(sql, con);
         comm.Parameters.Add(new MySqlParameter("@userid", userid));
         //omm.Parameters.Add(new MySqlParameter("@type", type));

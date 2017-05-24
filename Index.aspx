@@ -104,7 +104,7 @@
                                 <li class="qc"><a href="Xinpinshangjia.aspx">新品上架</a></li>
 							</ul>
 						    <div class="nav-extra">
-						    	<a href="#">一分钟了解二手云购</a>
+						    	<a href="About.aspx">一分钟了解二手云购</a>
 						    </div>
 						</div>
 					

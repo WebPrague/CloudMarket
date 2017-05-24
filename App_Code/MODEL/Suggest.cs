@@ -17,6 +17,7 @@ public class Suggest
     public int Id { get; set; }
     public string Problem { get; set; }
     public int UserId { get; set; }
+
   
 
 

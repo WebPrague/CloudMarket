@@ -60,7 +60,7 @@ public partial class Register : System.Web.UI.Page
             MySqlConnection con = new MySqlConnection(str);
             con.Open(); //进行数据库连接
             //string sql1 = "select * from user where email=@email and password=@password";
-            string sql = "insert into user(phonenumber,password,money)values(@phonenumber,@password,@money)";
+            string sql = "insert into user(phonenumber,phone_password,money)values(@phonenumber,@password,@money)";
 
             int usermoney = 0;
             MySqlCommand comm = new MySqlCommand(sql, con);
